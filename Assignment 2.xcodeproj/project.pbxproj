@@ -7,7 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		85823EB321887B1500B2FC60 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85823EB221887B1500B2FC60 /* main.cpp */; };
+		85823ECA21887C4500B2FC60 /* astree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85823EB921887C4400B2FC60 /* astree.cpp */; };
+		85823ECB21887C4500B2FC60 /* string_set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85823EBA21887C4400B2FC60 /* string_set.cpp */; };
+		85823ECC21887C4500B2FC60 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85823EBC21887C4400B2FC60 /* main.cpp */; };
+		85823ECD21887C4500B2FC60 /* parser.y in Sources */ = {isa = PBXBuildFile; fileRef = 85823EBD21887C4400B2FC60 /* parser.y */; };
+		85823ECE21887C4500B2FC60 /* auxlib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85823EC221887C4500B2FC60 /* auxlib.cpp */; };
+		85823ECF21887C4500B2FC60 /* lyutils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85823EC321887C4500B2FC60 /* lyutils.cpp */; };
+		85823ED021887C4500B2FC60 /* yyparse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85823EC521887C4500B2FC60 /* yyparse.cpp */; };
+		85823ED121887C4500B2FC60 /* debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85823EC821887C4500B2FC60 /* debug.cpp */; };
+		85823ED221887C4500B2FC60 /* stringset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85823EC921887C4500B2FC60 /* stringset.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +32,23 @@
 
 /* Begin PBXFileReference section */
 		85823EAF21887B1500B2FC60 /* Assignment 2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Assignment 2"; sourceTree = BUILT_PRODUCTS_DIR; };
-		85823EB221887B1500B2FC60 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		85823EB921887C4400B2FC60 /* astree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = astree.cpp; sourceTree = "<group>"; };
+		85823EBA21887C4400B2FC60 /* string_set.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = string_set.cpp; sourceTree = "<group>"; };
+		85823EBB21887C4400B2FC60 /* lyutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lyutils.h; sourceTree = "<group>"; };
+		85823EBC21887C4400B2FC60 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		85823EBD21887C4400B2FC60 /* parser.y */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = parser.y; sourceTree = "<group>"; };
+		85823EBE21887C4400B2FC60 /* oclib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = oclib.h; sourceTree = "<group>"; };
+		85823EBF21887C4400B2FC60 /* stringset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringset.h; sourceTree = "<group>"; };
+		85823EC021887C4400B2FC60 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
+		85823EC121887C4400B2FC60 /* yyparse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yyparse.h; sourceTree = "<group>"; };
+		85823EC221887C4500B2FC60 /* auxlib.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = auxlib.cpp; sourceTree = "<group>"; };
+		85823EC321887C4500B2FC60 /* lyutils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lyutils.cpp; sourceTree = "<group>"; };
+		85823EC421887C4500B2FC60 /* astree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = astree.h; sourceTree = "<group>"; };
+		85823EC521887C4500B2FC60 /* yyparse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = yyparse.cpp; sourceTree = "<group>"; };
+		85823EC621887C4500B2FC60 /* string_set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = string_set.h; sourceTree = "<group>"; };
+		85823EC721887C4500B2FC60 /* auxlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = auxlib.h; sourceTree = "<group>"; };
+		85823EC821887C4500B2FC60 /* debug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = debug.cpp; sourceTree = "<group>"; };
+		85823EC921887C4500B2FC60 /* stringset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stringset.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +81,23 @@
 		85823EB121887B1500B2FC60 /* Assignment 2 */ = {
 			isa = PBXGroup;
 			children = (
-				85823EB221887B1500B2FC60 /* main.cpp */,
+				85823EB921887C4400B2FC60 /* astree.cpp */,
+				85823EC421887C4500B2FC60 /* astree.h */,
+				85823EC221887C4500B2FC60 /* auxlib.cpp */,
+				85823EC721887C4500B2FC60 /* auxlib.h */,
+				85823EC821887C4500B2FC60 /* debug.cpp */,
+				85823EC021887C4400B2FC60 /* debug.h */,
+				85823EC321887C4500B2FC60 /* lyutils.cpp */,
+				85823EBB21887C4400B2FC60 /* lyutils.h */,
+				85823EBC21887C4400B2FC60 /* main.cpp */,
+				85823EBE21887C4400B2FC60 /* oclib.h */,
+				85823EBD21887C4400B2FC60 /* parser.y */,
+				85823EBA21887C4400B2FC60 /* string_set.cpp */,
+				85823EC621887C4500B2FC60 /* string_set.h */,
+				85823EC921887C4500B2FC60 /* stringset.cpp */,
+				85823EBF21887C4400B2FC60 /* stringset.h */,
+				85823EC521887C4500B2FC60 /* yyparse.cpp */,
+				85823EC121887C4400B2FC60 /* yyparse.h */,
 			);
 			path = "Assignment 2";
 			sourceTree = "<group>";
@@ -118,7 +158,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85823EB321887B1500B2FC60 /* main.cpp in Sources */,
+				85823ECD21887C4500B2FC60 /* parser.y in Sources */,
+				85823ED121887C4500B2FC60 /* debug.cpp in Sources */,
+				85823ECE21887C4500B2FC60 /* auxlib.cpp in Sources */,
+				85823ECF21887C4500B2FC60 /* lyutils.cpp in Sources */,
+				85823ED021887C4500B2FC60 /* yyparse.cpp in Sources */,
+				85823ED221887C4500B2FC60 /* stringset.cpp in Sources */,
+				85823ECA21887C4500B2FC60 /* astree.cpp in Sources */,
+				85823ECB21887C4500B2FC60 /* string_set.cpp in Sources */,
+				85823ECC21887C4500B2FC60 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
