@@ -15,6 +15,7 @@
 		85823ED021887C4500B2FC60 /* yyparse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85823EC521887C4500B2FC60 /* yyparse.cpp */; };
 		85823ED221887C4500B2FC60 /* stringset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85823EC921887C4500B2FC60 /* stringset.cpp */; };
 		85823ED421887D0600B2FC60 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 85823ED321887D0600B2FC60 /* Makefile */; };
+		85823ED121887C4500B2FC60 /* debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85823EC821887C4500B2FC60 /* debug.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,7 @@
 		85823EBD21887C4400B2FC60 /* parser.y */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = parser.y; sourceTree = "<group>"; };
 		85823EBE21887C4400B2FC60 /* oclib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = oclib.h; sourceTree = "<group>"; };
 		85823EBF21887C4400B2FC60 /* stringset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringset.h; sourceTree = "<group>"; };
+		85823EC021887C4400B2FC60 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
 		85823EC121887C4400B2FC60 /* yyparse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yyparse.h; sourceTree = "<group>"; };
 		85823EC221887C4500B2FC60 /* auxlib.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = auxlib.cpp; sourceTree = "<group>"; };
 		85823EC321887C4500B2FC60 /* lyutils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lyutils.cpp; sourceTree = "<group>"; };
@@ -46,6 +48,7 @@
 		85823EC921887C4500B2FC60 /* stringset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stringset.cpp; sourceTree = "<group>"; };
 		85823ED321887D0600B2FC60 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		85823ED521887D1900B2FC60 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		85823EC821887C4500B2FC60 /* debug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = debug.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 				85823EBD21887C4400B2FC60 /* parser.y */,
 				85823EC921887C4500B2FC60 /* stringset.cpp */,
 				85823EBF21887C4400B2FC60 /* stringset.h */,
+				85823EBA21887C4400B2FC60 /* string_set.cpp */,
+				85823EC621887C4500B2FC60 /* string_set.h */,
 				85823EC521887C4500B2FC60 /* yyparse.cpp */,
 				85823EC121887C4400B2FC60 /* yyparse.h */,
 			);
@@ -157,7 +162,6 @@
 				85823ECE21887C4500B2FC60 /* auxlib.cpp in Sources */,
 				85823ECF21887C4500B2FC60 /* lyutils.cpp in Sources */,
 				85823ED021887C4500B2FC60 /* yyparse.cpp in Sources */,
-				85823ED221887C4500B2FC60 /* stringset.cpp in Sources */,
 				85823ECA21887C4500B2FC60 /* astree.cpp in Sources */,
 				85823ED421887D0600B2FC60 /* Makefile in Sources */,
 				85823ECC21887C4500B2FC60 /* main.cpp in Sources */,
