@@ -46,6 +46,7 @@ void cpp_pclose() {
 }
 
 void scan_options(int argc, char* argv[]) {
+  int options = 0;
   while ((options = getopt(argc, argv, "@:D::ly")) != -1) {
     switch (options) {
       case '@':
@@ -74,7 +75,6 @@ void scan_options(int argc, char* argv[]) {
 
 
 int main(int argc, char * argv[]) {
-  int options = 0;
   yy_flex_debug = 0;
   yydebug = 0;
   
