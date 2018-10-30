@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8537C692218884D000CA1527 /* string_set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8537C690218884D000CA1527 /* string_set.cpp */; };
+		8537C6942188883900CA1527 /* scanner.l in Sources */ = {isa = PBXBuildFile; fileRef = 8537C6932188883900CA1527 /* scanner.l */; };
 		85823ECA21887C4500B2FC60 /* astree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85823EB921887C4400B2FC60 /* astree.cpp */; };
 		85823ECC21887C4500B2FC60 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85823EBC21887C4400B2FC60 /* main.cpp */; };
 		85823ECD21887C4500B2FC60 /* parser.y in Sources */ = {isa = PBXBuildFile; fileRef = 85823EBD21887C4400B2FC60 /* parser.y */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		8537C690218884D000CA1527 /* string_set.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = string_set.cpp; sourceTree = "<group>"; };
 		8537C691218884D000CA1527 /* string_set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = string_set.h; sourceTree = "<group>"; };
+		8537C6932188883900CA1527 /* scanner.l */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.lex; path = scanner.l; sourceTree = "<group>"; };
 		85823EAF21887B1500B2FC60 /* Assignment 2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Assignment 2"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85823EB921887C4400B2FC60 /* astree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = astree.cpp; sourceTree = "<group>"; };
 		85823EBB21887C4400B2FC60 /* lyutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lyutils.h; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				8537C691218884D000CA1527 /* string_set.h */,
 				85823EC521887C4500B2FC60 /* yyparse.cpp */,
 				85823EC121887C4400B2FC60 /* yyparse.h */,
+				8537C6932188883900CA1527 /* scanner.l */,
 			);
 			path = "Assignment 2";
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85823ECD21887C4500B2FC60 /* parser.y in Sources */,
+				8537C6942188883900CA1527 /* scanner.l in Sources */,
 				8537C692218884D000CA1527 /* string_set.cpp in Sources */,
 				85823ECE21887C4500B2FC60 /* auxlib.cpp in Sources */,
 				85823ECF21887C4500B2FC60 /* lyutils.cpp in Sources */,
