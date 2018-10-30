@@ -33,6 +33,7 @@
 		8537C690218884D000CA1527 /* string_set.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = string_set.cpp; sourceTree = "<group>"; };
 		8537C691218884D000CA1527 /* string_set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = string_set.h; sourceTree = "<group>"; };
 		8537C6932188883900CA1527 /* scanner.l */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.lex; path = scanner.l; sourceTree = "<group>"; };
+		8537C6952188A22200CA1527 /* yyparse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yyparse.h; sourceTree = "<group>"; };
 		85823EAF21887B1500B2FC60 /* Assignment 2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Assignment 2"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85823EB921887C4400B2FC60 /* astree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = astree.cpp; sourceTree = "<group>"; };
 		85823EBB21887C4400B2FC60 /* lyutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lyutils.h; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 		85823EB121887B1500B2FC60 /* Assignment 2 */ = {
 			isa = PBXGroup;
 			children = (
+				8537C6952188A22200CA1527 /* yyparse.h */,
 				85823EB921887C4400B2FC60 /* astree.cpp */,
 				85823EC421887C4500B2FC60 /* astree.h */,
 				85823EC221887C4500B2FC60 /* auxlib.cpp */,
