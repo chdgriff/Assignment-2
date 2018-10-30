@@ -37,7 +37,6 @@
 		85823EBB21887C4400B2FC60 /* lyutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lyutils.h; sourceTree = "<group>"; };
 		85823EBC21887C4400B2FC60 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		85823EBD21887C4400B2FC60 /* parser.y */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = parser.y; sourceTree = "<group>"; };
-		85823EBE21887C4400B2FC60 /* oclib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = oclib.h; sourceTree = "<group>"; };
 		85823EC121887C4400B2FC60 /* yyparse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yyparse.h; sourceTree = "<group>"; };
 		85823EC221887C4500B2FC60 /* auxlib.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = auxlib.cpp; sourceTree = "<group>"; };
 		85823EC321887C4500B2FC60 /* lyutils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lyutils.cpp; sourceTree = "<group>"; };
@@ -79,9 +78,6 @@
 		85823EB121887B1500B2FC60 /* Assignment 2 */ = {
 			isa = PBXGroup;
 			children = (
-				8537C690218884D000CA1527 /* string_set.cpp */,
-				8537C691218884D000CA1527 /* string_set.h */,
-				85823ED321887D0600B2FC60 /* Makefile */,
 				85823EB921887C4400B2FC60 /* astree.cpp */,
 				85823EC421887C4500B2FC60 /* astree.h */,
 				85823EC221887C4500B2FC60 /* auxlib.cpp */,
@@ -89,8 +85,10 @@
 				85823EC321887C4500B2FC60 /* lyutils.cpp */,
 				85823EBB21887C4400B2FC60 /* lyutils.h */,
 				85823EBC21887C4400B2FC60 /* main.cpp */,
-				85823EBE21887C4400B2FC60 /* oclib.h */,
+				85823ED321887D0600B2FC60 /* Makefile */,
 				85823EBD21887C4400B2FC60 /* parser.y */,
+				8537C690218884D000CA1527 /* string_set.cpp */,
+				8537C691218884D000CA1527 /* string_set.h */,
 				85823EC521887C4500B2FC60 /* yyparse.cpp */,
 				85823EC121887C4400B2FC60 /* yyparse.h */,
 			);
