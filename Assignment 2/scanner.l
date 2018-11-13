@@ -20,7 +20,7 @@ IDENTIFIER    {LETTER}({LETTER}|{DIGIT})*
 DECIMAL_INT   [1-9]{DIGIT}*
 OCTAL_INT     0[1-7]*
 HEX_INT       0[xX][{DIGIT}A-Fa-f]+
-NUMBER       {DECIMAL_INT}|{OCTAL_INT}|{HEX_INT}
+INTEGER       {DECIMAL_INT}|{OCTAL_INT}|{HEX_INT}
 CHAR          '([^\\'\n]|\\[\\'"0nt])'
 STRING        \"([^\\"\n]|\\[\\’"0nt])*\"
 
@@ -47,10 +47,10 @@ BAD_STRING   \"([^\\"\n]|\\[\\'"0nt])*[^\"]?
 "null"        { RETURN(TOK_NULL); }
 "not"         { RETURN(TOK_NOT); }
 
-{NUMBER}      { RETURN(TOK_INTCON); }
-{IDENTIFIER}  { RETURN(TOK_IDENT); }
+{INTEGER}      { RETURN(TOK_INTCON); }
 {CHAR}        { RETURN(TOK_CHARCON); }
 {STRING}      { RETURN(TOK_STRINGCON); }
+{IDENTIFIER}  { RETURN(TOK_IDENT); }
 
 "=="          { RETURN(TOK_EQ); }
 "!="          { RETURN(TOK_NE); }
