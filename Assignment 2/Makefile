@@ -18,13 +18,14 @@ YSOURCES  = parser.y
 CLGEN     = yylex.cpp
 HYGEN     = yyparse.h
 CYGEN     = yyparse.cpp
-ALLGEN    = ${CLGEN} ${HYGEN} ${CYGEN}
+ALLCGEN   = ${CLGEN} ${CYGEN}
+ALLGEN    = ${ALLCGEN} ${HYGEN}
 LREPORT   = yyflex.out
 YREPORT   = yyparse.out
 EXECBIN   = oc
-ALLCSRC   = ${CPPSRC}
 OBJECTS   = ${ALLCSRC:.cpp=.o}
-ALLSRC    = README ALLCSRC Makefile
+ALLCSRC   = CPPSRC ALLCGEN
+ALLSRC    = README Makefile HDRSRC ALLCSRC HYGEN LSOURCES YSOURCES
 
 all : ${EXECBIN}
 
@@ -32,10 +33,10 @@ ${EXECBIN} : ${OBJECTS}
 	${CPPWARN} -o ${EXECBIN} ${OBJECTS}
 
 yylex.o : yylex.cpp
-	${CPPYY} $<
+	${CPPYY} -c $<
 
 yyparse.o : yyparse.cpp
-	${CPPYY} $<
+	${CPPYY} -c $<
 
 %.o : %.cpp
 	- cpplint.py.perl $<
@@ -51,7 +52,7 @@ ci : ${ALLSRC} ${TESTINS}
 	checksource ${ALLSRC}
 
 grind :
-  ${GRIND} ${PROGRAM}
+	${GRIND} ${PROGRAM}
 
 clean :
 	rm -f *.o ${ALLGENS}

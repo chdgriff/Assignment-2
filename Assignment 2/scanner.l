@@ -1,15 +1,9 @@
-// scanner.l
-//
-// Created by Christopher Griffis on 10/29/18.
-
-
 %{
   #include "lyutils.h"
   #define YY_USER_ACTION { lexer::advance(); }
   #define RETURN(SYM) { return yylval_token(SYM); }
 }%
 
-// Definitions
 %option 8bit
 %option debug
 %option nodefault
@@ -33,7 +27,6 @@ BAD_STRING   \"([^\\"\n]|\\[\\'"0nt])*[^\"]?
 
 
 %%
-// Rules
 
 "#".*         { lexer::include(); }
 [ \t]+        {  }
@@ -87,5 +80,3 @@ BAD_STRING   \"([^\\"\n]|\\[\\'"0nt])*[^\"]?
 
 
 %%
-
-// User code
