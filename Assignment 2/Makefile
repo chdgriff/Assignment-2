@@ -47,7 +47,6 @@ ${CLGEN} : ${LSOURCES}
 ${CYGEN} ${HYGEN} : ${YSOURCES}
 	${BISON} $<
 
-
 ci : ${ALLSRC} ${TESTINS}
 	checksource ${ALLSRC}
 

@@ -22,7 +22,7 @@ string CPP_command;
 
 // Runs file through CPP and through lexer
 void cpp_popen(const string file_path) {
-  string CPP_command = CPP + " " + file_path;
+  CPP_command = CPP + " " + file_path;
   DEBUGF('c', "CPP_command = %s\n", CPP_command.c_str());
 
   FILE* yyin = popen(CPP_command.c_str(), "r");
@@ -73,6 +73,16 @@ void scan_options(int argc, char* argv[]) {
   }
 }
 
+string set_file_extension(const string file_name) {
+  string file_extension = file_name.substr(file_name.size()-3, 3);
+  if (file_extension.compare(".oc") != 0) {
+    eprintf("Invalid input of type \"%s\" must be of type \".oc\"\n",
+            file_extension.c_str());
+    exit(EXIT_FAILURE);
+  }
+  return file_extension;
+}
+
 
 int main(int argc, char * argv[]) {
   yy_flex_debug = 0;
@@ -83,41 +93,30 @@ int main(int argc, char * argv[]) {
   string file_path = argv[optind];
   string file_name = basename(const_cast<char*>(file_path.c_str()));
   DEBUGF('a', "file_name = %s\n", file_name.c_str());
-
-  string file_extension = file_name.substr(file_name.size()-3, 3);
-  if (file_extension.compare(".oc") != 0) {
-    eprintf("Invalid input of type \"%s\" must be of type \".oc\"\n",
-            file_extension.c_str());
-    exit(EXIT_FAILURE);
-  }
-
+  string file_extension = set_file_extension(file_name);
   string file_base_name(file_name, file_name.size()-3);
   DEBUGF('b', " file_base_name = %s\n", file_base_name.c_str());
 
+  string_set set;
+  
   cpp_popen(file_path);
-  int parse_rc = yyparse();
+  int parse_rc = 0;
+  do {
+    parse_rc = yyparse();
+    string_set::intern(yytext);
+  } while (parse_rc != YYEOF);
+  
   cpp_pclose();
     
-
   yylex_destroy();
-  if (yydebug or yy_flex_debug) {
-    fprintf (stderr, "Dumping parser::root:\n");
-    if (parser::root != nullptr) parser::root->dump_tree(stderr);
-    fprintf (stderr, "Dumping string_set:\n");
-    string_set::dump(stderr);
-  }
-  if (parse_rc) {
-    errprintf ("parse failed (%d)\n", parse_rc);
-  }else {
-    FILE* str_file = fopen((file_base_name + ".str").c_str() , "w");
-    string_set::dump(str_file);
-    fclose(str_file);
+  FILE* str_file = fopen((file_base_name + ".str").c_str() , "w");
+  string_set::dump(str_file);
+  fclose(str_file);
 
-    FILE* tok_file = fopen((file_base_name + ".tok").c_str() , "w");
-    astree::print (tok_file, parser::root);
-    fclose(tok_file);
-    delete parser::root;
-  }
+  FILE* tok_file = fopen((file_base_name + ".tok").c_str() , "w");
+  astree::print (tok_file, parser::root);
+  fclose(tok_file);
+  delete parser::root;
 
   return EXIT_SUCCESS;
 }
