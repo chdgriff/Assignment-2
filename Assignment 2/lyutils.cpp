@@ -14,6 +14,11 @@ location lexer::lloc = {0, 1, 0};
 size_t lexer::last_yyleng = 0;
 vector<string> lexer::filenames;
 
+int yylval_token(int symbol) {
+  yylval = new astree(symbol, lexer::lloc, yytext);
+  return symbol;
+}
+
 astree* parser::root = nullptr;
 
 const string* lexer::filename (int filenr) {
