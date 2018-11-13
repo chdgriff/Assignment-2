@@ -55,7 +55,7 @@ grind :
 	${GRIND} ${PROGRAM}
 
 clean :
-	rm -f *.o ${ALLGENS}
+	rm -f *.o ${ALLGEN}
 
 spotless : clean
 	rm -f ${EXECBIN}
