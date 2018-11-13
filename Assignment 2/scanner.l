@@ -1,8 +1,11 @@
 %{
+  
   #include "lyutils.h"
+  
   #define YY_USER_ACTION { lexer::advance(); }
   #define RETURN(SYM) { return yylval_token(SYM); }
-}%
+  
+%}
 
 %option 8bit
 %option debug
@@ -31,10 +34,6 @@ BAD_STRING   \"([^\\"\n]|\\[\\'"0nt])*[^\"]?
 "#".*         { lexer::include(); }
 [ \t]+        {  }
 \n            { lexer::newline(); }
-{NUMBER}      { RETURN(TOK_INTCON); }
-{IDENTIFIER}  { RETURN(TOK_IDENT); }
-{CHAR}        { RETURN(TOK_CHARCON); }
-{STRING}      { RETURN(TOK_STRINGCON); }
 
 "if"          { RETURN(TOK_IF); }
 "else"        { RETURN(TOK_ELSE); }
@@ -47,6 +46,11 @@ BAD_STRING   \"([^\\"\n]|\\[\\'"0nt])*[^\"]?
 "new"         { RETURN(TOK_NEW); }
 "null"        { RETURN(TOK_NULL); }
 "not"         { RETURN(TOK_NOT); }
+
+{NUMBER}      { RETURN(TOK_INTCON); }
+{IDENTIFIER}  { RETURN(TOK_IDENT); }
+{CHAR}        { RETURN(TOK_CHARCON); }
+{STRING}      { RETURN(TOK_STRINGCON); }
 
 "=="          { RETURN(TOK_EQ); }
 "!="          { RETURN(TOK_NE); }
