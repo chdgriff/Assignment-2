@@ -2,8 +2,7 @@
   
   #include "lyutils.h"
   
-  #define YY_USER_ACTION { lexer::advance(); }
-  #define RETURN(SYM) { return yylval_token(SYM); }
+  #define YY_USER_ACTION  { lexer::advance(); }
   
 %}
 
@@ -12,75 +11,75 @@
 %option nodefault
 %option nounput
 %option noyywrap
+%option verbose
 %option warn
 
-LETTER        [A-Za-z]
-DIGIT         [0-9]
-IDENTIFIER    {LETTER}({LETTER}|{DIGIT})*
+LETTER          [A-Za-z_]
+DIGIT           [0-9]
+
 DECIMAL_INT   [1-9]{DIGIT}*
-OCTAL_INT     0[1-7]*
+OCTAL_INT     0[0-7]+
 HEX_INT       0[xX][{DIGIT}A-Fa-f]+
 INTEGER       {DECIMAL_INT}|{OCTAL_INT}|{HEX_INT}
+
+IDENTIFIER    {LETTER}({LETTER}|{DIGIT})*
 CHAR          '([^\\'\n]|\\[\\'"0nt])'
 STRING        \"([^\\"\n]|\\[\\’"0nt])*\"
 
-BAD_IDENT    {DIGIT}+({LETTER}|{DIGIT})*
-BAD_CHAR     '([^\\'\n]|\\[\\'"0nt]?)[^']?
-BAD_STRING   \"([^\\"\n]|\\[\\'"0nt])*[^\"]?
-
+BAD_IDENT     {DIGIT}+({LETTER}|{DIGIT})*
+BAD_CHAR      '([^\\'\n]|\\[\\'"0nt]?)[^']?
+BAD_STRING    \"([^\\"\n]|\\[\\'"0nt])*[^\"]?
 
 %%
 
 "#".*         { lexer::include(); }
-[ \t]+        {  }
+[ \t]+        { }
 \n            { lexer::newline(); }
 
-"if"          { RETURN(TOK_IF); }
-"else"        { RETURN(TOK_ELSE); }
-"while"       { RETURN(TOK_WHILE); }
-"return"     { RETURN(TOK_RETURN); }
-"int"         { RETURN(TOK_INT); }
-"string"      { RETURN(TOK_STRING); }
-"struct"      { RETURN(TOK_STRUCT); }
-"void"        { RETURN(TOK_VOID); }
-"new"         { RETURN(TOK_NEW); }
-"null"        { RETURN(TOK_NULL); }
-"not"         { RETURN(TOK_NOT); }
+"if"          { return yylval_token(TOK_IF); }
+"else"        { return yylval_token(TOK_ELSE); }
+"while"       { return yylval_token(TOK_WHILE); }
+"return"      { return yylval_token(TOK_RETURN); }
+"int"         {ECHO; return yylval_token(TOK_INT); }
+"string"      { return yylval_token(TOK_STRING); }
+"struct"      { return yylval_token(TOK_STRUCT); }
+"void"        { return yylval_token(TOK_VOID); }
+"new"         { return yylval_token(TOK_NEW); }
+"null"        { return yylval_token(TOK_NULL); }
+"not"         { return yylval_token(TOK_NOT); }
 
-{INTEGER}      { RETURN(TOK_INTCON); }
-{CHAR}        { RETURN(TOK_CHARCON); }
-{STRING}      { RETURN(TOK_STRINGCON); }
-{IDENTIFIER}  { RETURN(TOK_IDENT); }
+{INTEGER}     { return yylval_token(TOK_INTCON); }
+{CHAR}        { return yylval_token(TOK_CHARCON); }
+{STRING}      { return yylval_token(TOK_STRINGCON); }
+{IDENTIFIER}  { return yylval_token(TOK_IDENT); }
 
-"=="          { RETURN(TOK_EQ); }
-"!="          { RETURN(TOK_NE); }
-"<"           { RETURN(TOK_LT); }
-"<="          { RETURN(TOK_LE); }
-">"           { RETURN(TOK_GT); }
-">="          { RETURN(TOK_GE); }
-"->"          { RETURN(TOK_ARROW); }
-"[]"          { RETURN(TOK_ARRAY); }
+"=="          { return yylval_token(TOK_EQ); }
+"!="          { return yylval_token(TOK_NE); }
+"<"           { return yylval_token(TOK_LT); }
+"<="          { return yylval_token(TOK_LE); }
+">"           { return yylval_token(TOK_GT); }
+">="          { return yylval_token(TOK_GE); }
+"->"          { return yylval_token(TOK_ARROW); }
+"[]"          { return yylval_token(TOK_ARRAY); }
 
-"+"           { RETURN('+'); }
-"-"           { RETURN('-'); }
-"*"           { RETURN('*'); }
-"/"           { RETURN('/'); }
-"%"           { RETURN('%'); }
-"="           { RETURN('='); }
-","           { RETURN(','); }
-"("           { RETURN('('); }
-")"           { RETURN(')'); }
-"["           { RETURN('['); }
-"]"           { RETURN(']'); }
-"{"           { RETURN('{'); }
-"}"           { RETURN('}'); }
+"+"           { return yylval_token('+'); }
+"-"           { return yylval_token('-'); }
+"*"           { return yylval_token('*'); }
+"/"           { return yylval_token('/'); }
+"%"           { return yylval_token('%'); }
+"="           { return yylval_token('='); }
+","           { return yylval_token(','); }
+";"           { return yylval_token(';'); }
+"("           { return yylval_token('('); }
+")"           { return yylval_token(')'); }
+"["           { return yylval_token('['); }
+"]"           { return yylval_token(']'); }
+"{"           { return yylval_token('{'); }
+"}"           { return yylval_token('}'); }
 
 {BAD_IDENT}   { lexer::badtoken(yytext); }
 {BAD_CHAR}    { lexer::badtoken(yytext); }
 {BAD_STRING}  { lexer::badtoken(yytext); }
 .             { lexer::badchar(*yytext); }
-
-
-
 
 %%
