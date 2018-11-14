@@ -39,7 +39,6 @@ yyparse.o : yyparse.cpp
 	${CPPYY} -c $<
 
 ${CPPSRC:.cpp=.o} : ${CPPSRC}
-#	- cpplint.py.perl $<
 	${CPPWARN} -c ${CPPSRC}
 
 ${CLGEN} : ${LSOURCES}
@@ -47,9 +46,6 @@ ${CLGEN} : ${LSOURCES}
 
 ${CYGEN} ${HYGEN} : ${YSOURCES}
 	${BISON} $<
-
-ci : ${ALLSRC} ${TESTINS}
-	checksource ${ALLSRC}
 
 clean :
 	rm -f *.o ${ALLGEN} ${LREPORT} ${YREPORT}
