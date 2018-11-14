@@ -19,6 +19,7 @@ using namespace std;
 
 const string CPP = "/usr/bin/cpp -nostdinc";
 string CPP_command;
+FILE* tok_file;
 
 // Runs file through CPP and through lexer
 void cpp_popen(const string file_path) {
@@ -51,24 +52,29 @@ void scan_options(int argc, char* argv[]) {
     switch (options) {
       case '@':
         set_debugflags(optarg);
+        printf("debug flags set\n");
         break;
       case 'D':
         break;
       case 'l':
         yy_flex_debug = 1;
+        printf("yy_flex_debug set\n");
         break;
       case 'y':
         yydebug = 1;
+        printf("yydebug set\n");
         break;
       default:
-        eprintf("Usage: oc [-ly] [-@flags] [-Dstring] program.oc\n");
+        eprintf("Invalid Flag, "
+                "Usage: oc [-ly] [-@flags] [-D string] program.oc\n");
         exit(EXIT_FAILURE);
     }
   }
   
   // if no file provided
-  if (optind == argc) {
-    eprintf("Usage: oc [-ly] [-@flags] [-Dstring] program.oc");
+  if (optind > argc) {
+    eprintf("No file provided, "
+            "Usage: oc [-ly] [-@flags] [-D string] program.oc\n");
     exit(EXIT_FAILURE);
   }
 }
@@ -87,36 +93,39 @@ string set_file_extension(const string file_name) {
 int main(int argc, char * argv[]) {
   yy_flex_debug = 0;
   yydebug = 0;
+  exec::execname = "oc";
   
   scan_options(argc, argv);
   
   string file_path = argv[optind];
+  DEBUGF('d', "file_path = %s\n", file_path.c_str());
   string file_name = basename(const_cast<char*>(file_path.c_str()));
-  DEBUGF('a', "file_name = %s\n", file_name.c_str());
+  DEBUGF('b', "file_name = %s\n", file_name.c_str());
   string file_extension = set_file_extension(file_name);
-  string file_base_name(file_name, file_name.size()-3);
-  DEBUGF('b', " file_base_name = %s\n", file_base_name.c_str());
-
-  string_set set;
+  string file_base_name(file_name, 0, file_name.size()-3);
+  DEBUGF('c', "file_base_name = %s\n", file_base_name.c_str());
   
+  string_set set;
+  tok_file = fopen((file_base_name + ".tok").c_str() , "w");
   cpp_popen(file_path);
   int parse_rc = 0;
   do {
-    parse_rc = yyparse();
+    parse_rc = yylex();
+    printf("%s\n", yytext);
     string_set::intern(yytext);
   } while (parse_rc != YYEOF);
   
   cpp_pclose();
-    
+  fclose(tok_file);
+  
   yylex_destroy();
+  
   FILE* str_file = fopen((file_base_name + ".str").c_str() , "w");
   string_set::dump(str_file);
   fclose(str_file);
 
-  FILE* tok_file = fopen((file_base_name + ".tok").c_str() , "w");
-  astree::print (tok_file, parser::root);
-  fclose(tok_file);
+  
   delete parser::root;
-
-  return EXIT_SUCCESS;
+  
+  return exec::exit_status;
 }
