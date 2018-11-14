@@ -18,7 +18,7 @@ LETTER          [A-Za-z_]
 DIGIT           [0-9]
 
 DECIMAL_INT   [1-9]{DIGIT}*
-OCTAL_INT     0[0-7]+
+OCTAL_INT     0[0-7]*
 HEX_INT       0[xX][{DIGIT}A-Fa-f]+
 INTEGER       {DECIMAL_INT}|{OCTAL_INT}|{HEX_INT}
 
@@ -40,7 +40,7 @@ BAD_STRING    \"([^\\"\n]|\\[\\'"0nt])*[^\"]?
 "else"        { return yylval_token(TOK_ELSE); }
 "while"       { return yylval_token(TOK_WHILE); }
 "return"      { return yylval_token(TOK_RETURN); }
-"int"         {ECHO; return yylval_token(TOK_INT); }
+"int"         { return yylval_token(TOK_INT); }
 "string"      { return yylval_token(TOK_STRING); }
 "struct"      { return yylval_token(TOK_STRUCT); }
 "void"        { return yylval_token(TOK_VOID); }
