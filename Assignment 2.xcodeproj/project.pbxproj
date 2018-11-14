@@ -44,6 +44,7 @@
 		85823EC721887C4500B2FC60 /* auxlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = auxlib.h; sourceTree = "<group>"; };
 		85823ED321887D0600B2FC60 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; usesTabs = 1; };
 		85823ED521887D1900B2FC60 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		8583942A219C143000D14492 /* asg2-scanner.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "asg2-scanner.pdf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +61,7 @@
 		85823EA621887B1500B2FC60 = {
 			isa = PBXGroup;
 			children = (
+				8583942A219C143000D14492 /* asg2-scanner.pdf */,
 				85823ED521887D1900B2FC60 /* README */,
 				85823EB121887B1500B2FC60 /* Assignment 2 */,
 				85823EB021887B1500B2FC60 /* Products */,
