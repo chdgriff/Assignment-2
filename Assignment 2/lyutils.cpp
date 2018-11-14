@@ -1,6 +1,10 @@
 // $Id: lyutils.cpp,v 1.11 2016-10-06 16:42:53-07 - - $
 
-// Slightly modified to include yylval_token() and print filenames in include
+// Taken from Wesley Mackey's util code
+// Modified by Christopher Griffis
+
+// Slightly modified to include yylval_token()
+// Added print filenames in lexer::include()
 
 #include <assert.h>
 #include <ctype.h>
@@ -78,7 +82,8 @@ void lexer::include() {
          fprintf (stderr, "--included # %zd \"%s\"\n",
                   linenr, filename);
       }
-     fprintf(tok_file, "#%3lu \"%s\"\n", lexer::filenames.size(), filename);
+     fprintf(tok_file, "#%3lu \"%s\"\n", lexer::filenames.size(),
+             filename);
       lexer::lloc.linenr = linenr - 1;
       lexer::newfilename (filename);
      
