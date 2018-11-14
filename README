@@ -1,6 +1,14 @@
 Christopher Griffis <chdgriff>
+Assignment 2
+11/13/19
 
 
-Used Examples/e08.expr-sm/Makefile, cppstrtok.cpp 
-in Assignments as well as the stringset ADT
+Used Examples/e08.expr-sm/, cppstrtok.cpp to help as well as the util
+code astree, auxlib, lyutils (slightly modified), string_set.
 
+To run:
+-@: Debug flags @ for all flags
+-l: yy_flex_debug
+-y: yy_debug
+  $ make
+  $ oc [-@ flags] [-ly] input.oc
