@@ -15,7 +15,12 @@ size_t lexer::last_yyleng = 0;
 vector<string> lexer::filenames;
 
 int yylval_token(int symbol) {
+  printf("testing\n");
   yylval = new astree(symbol, lexer::lloc, yytext);
+  fprintf(tok_file, " %4ld   %4.3f  %4d  %-16s  (%s)\n",
+          lexer::lloc.filenr, lexer::lloc.linenr +
+          lexer::lloc.offset/1000.0, symbol,
+          parser::get_tname(symbol), yytext);
   return symbol;
 }
 
