@@ -26,7 +26,7 @@ void cpp_popen(const string file_path) {
   CPP_command = CPP + " " + file_path;
   DEBUGF('c', "CPP_command = %s\n", CPP_command.c_str());
 
-  FILE* yyin = popen(CPP_command.c_str(), "r");
+  yyin = popen(CPP_command.c_str(), "r");
   if (yyin == nullptr) {
     eprintf("%s: %s: %s\n", CPP_command.c_str(), strerror(errno));
     exit(EXIT_FAILURE);
@@ -52,17 +52,14 @@ void scan_options(int argc, char* argv[]) {
     switch (options) {
       case '@':
         set_debugflags(optarg);
-        printf("debug flags set\n");
         break;
       case 'D':
         break;
       case 'l':
         yy_flex_debug = 1;
-        printf("yy_flex_debug set\n");
         break;
       case 'y':
         yydebug = 1;
-        printf("yydebug set\n");
         break;
       default:
         eprintf("Invalid Flag, "
@@ -111,7 +108,6 @@ int main(int argc, char * argv[]) {
   int parse_rc = 0;
   do {
     parse_rc = yylex();
-    printf("%s\n", yytext);
     string_set::intern(yytext);
   } while (parse_rc != YYEOF);
   

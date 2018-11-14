@@ -1,5 +1,7 @@
 // $Id: lyutils.cpp,v 1.11 2016-10-06 16:42:53-07 - - $
 
+// Slightly modified to include yylval_token() and print filenames in include
+
 #include <assert.h>
 #include <ctype.h>
 #include <stdio.h>
@@ -15,9 +17,8 @@ size_t lexer::last_yyleng = 0;
 vector<string> lexer::filenames;
 
 int yylval_token(int symbol) {
-  printf("testing\n");
   yylval = new astree(symbol, lexer::lloc, yytext);
-  fprintf(tok_file, " %4ld   %4.3f  %4d  %-16s  (%s)\n",
+  fprintf(tok_file, " %3ld   %4.3f  %4d  %-15s  %s\n",
           lexer::lloc.filenr, lexer::lloc.linenr +
           lexer::lloc.offset/1000.0, symbol,
           parser::get_tname(symbol), yytext);
@@ -77,8 +78,10 @@ void lexer::include() {
          fprintf (stderr, "--included # %zd \"%s\"\n",
                   linenr, filename);
       }
+     fprintf(tok_file, "#%3lu \"%s\"\n", lexer::filenames.size(), filename);
       lexer::lloc.linenr = linenr - 1;
       lexer::newfilename (filename);
+     
    }
 }
 
